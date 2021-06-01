@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
+import Dish from './components/DishesComponent';
+import { DISHES } from './shared/dishes';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dishes: DISHES
+    }
+  }
+
   render() {
     return (
       <div className='App'>
@@ -11,10 +20,11 @@ class App extends Component {
             <NavbarBrand href='/'>Red Sea</NavbarBrand>
           </div>
         </Navbar>
+        <Dish dishes = {this.state.dishes} />
       </div>
     )
   }
 }
 
 
-export default App;
+export default App  ;
