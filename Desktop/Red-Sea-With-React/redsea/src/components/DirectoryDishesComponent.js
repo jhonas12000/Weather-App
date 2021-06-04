@@ -1,36 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle, } from 'reactstrap';
 
 
-class Dish extends Component {
-    
+function RenderDirectoryItem({dish, onClick}) {
+    return (
+        <Card onClick={() => onClick(dish.id)} >
+            <CardImg width='100%' src={dish.image} alt={dish.name} />
+                <CardImgOverlay>
+                    <CardTitle>{dish.name}</CardTitle>
+                </CardImgOverlay>
+        </Card>
+    )
+}
 
-    render() {
-        const dish = this.props.dishes.map(dish => {
-            return (
-                <div key={dish.id} className='col-md-3 m-1'>
-                    <Card onClick={() => this.props.onClick(dish.id)} >
-                        <CardImg width='100%' src={dish.image} alt={dish.name} />
-                        <CardImgOverlay>
-                            <CardTitle>{dish.name}</CardTitle>
-                        </CardImgOverlay>
-                    </Card>
-                </div>
-            )
-        })
+
+function Dish(props) {
+    
+    const dish = props.dishes.map(dish => {
         return (
-            <div className='container'>
-                <div className='row'>
-                    {dish}
-                </div>
-            
-                <div className='col'>
-                    
-                </div>
-                
+            <div key={dish.id} className='col-md-3 m-1'>
+                <RenderDirectoryItem dish={dish} onClick={props.onClick} />
             </div>
         )
-    }
+    })
+    return (
+        <div className='container'>
+            <div className='row'>
+                {dish}
+            </div>
+        
+            <div className='col'>
+                
+            </div>
+            
+        </div>
+    )
+    
 }
 
 

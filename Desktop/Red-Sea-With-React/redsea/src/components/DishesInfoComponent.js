@@ -1,36 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardText  } from 'reactstrap'
 
 
 
-class DishInfo extends Component {
+function RenderDish({dish}) {
 
-    renderDish(dish) {
+    return (
+        <div className='col-md-5 m-1'>
+            <Card>
+                <CardImg top src={dish.image} alt={dish.name} />
+                <CardBody>
+                    <CardTitle>{dish.name}</CardTitle>
+                    <CardText>{dish.description}</CardText>
+                </CardBody>
+            </Card>
+        </div>
+    );
+}    
+
+function DishInfo (props) {
+    if(props.dish) {
         return (
-            <div className='col-md-5 m-1'>
-                <Card>
-                    <CardImg top src={dish.image} alt={dish.name} />
-                    <CardBody>
-                        <CardTitle>{dish.name}</CardTitle>
-                        <CardText>{dish.description}</CardText>
-                    </CardBody>
-                </Card>
+            <div className='container'>
+                <div className='row'>
+                    <RenderDish dish={props.dish} />
+                </div>
             </div>
         )
     }
-
-    render () {
-        if(this.props.dish) {
-            return (
-                <div className='container'>
-                    <div className='row'>
-                        {this.renderDish(this.props.dish)}
-                    </div>
-                </div>
-            )
-        }
-        return <div />
-    }
-
+    return <div />
 }
+
+
 export default DishInfo;
