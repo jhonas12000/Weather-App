@@ -2,9 +2,9 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle, } from 'reactstrap';
 
 
-function RenderDirectoryItem({dish, onClick}) {
+function RenderDirectoryItem({dish}) {
     return (
-        <Card onClick={() => onClick(dish.id)} >
+        <Card >
             <CardImg width='100%' src={dish.image} alt={dish.name} />
                 <CardImgOverlay>
                     <CardTitle>{dish.name}</CardTitle>
@@ -19,7 +19,7 @@ function Dish(props) {
     const dish = props.dishes.map(dish => {
         return (
             <div key={dish.id} className='col-md-3 m-1'>
-                <RenderDirectoryItem dish={dish} onClick={props.onClick} />
+                <RenderDirectoryItem dish={dish} />
             </div>
         )
     })

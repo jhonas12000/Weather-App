@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 function Footer(props) {
@@ -9,16 +10,16 @@ function Footer(props) {
                     <div className='col-4 col sm-2 offset-1'>
                         <h5>Links</h5>
                         <ul className='list-unstyled'>
-                            <li><a href='#'>Home</a> </li>
-                            <li><a href='#'>Menu</a> </li>
-                            <li><a href='#'>About</a> </li>
-                            <li><a href='#'>Contact</a> </li>
+                            <li><Link to='/home'>Home</Link> </li>
+                            <li><Link to='/dish'>Menu</Link> </li>
+                            <li><Link to='/aboutus'>About Us</Link> </li>
+                            <li><Link to='/contact'>Contact Us</Link> </li>
                         </ul>
                     </div>
                     <div className='col-6 col-sm-3 text-center'>
                         <h5>Social</h5>
-                        <a className='btn btn-social-icon btn-instagram' href='http://instagram.com/'><i className='fa fa-instagram' /> </a>{''}
-                        <a className='btn btn-social-icon btn-facebook' href='http://www.facebook.com/'><i className='fa fa-facebook' /> </a>{''}
+                        <a className='btn btn-social-icon btn-instagram' href='http://instagram.com/'><i className='fa fa-instagram' /> </a>{' '}
+                        <a className='btn btn-social-icon btn-facebook' href='http://www.facebook.com/'><i className='fa fa-facebook' /> </a>{' '}
                         <a className='btn btn-social-icon btn-twitter' href='http://twitter.com/'><i className='fa fa-twitter' /> </a>
                     </div>
                     <div className='col-sm-4 text-center'>
